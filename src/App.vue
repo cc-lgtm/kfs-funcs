@@ -33,4 +33,16 @@ const { proxy } = getCurrentInstance()!
 //     a: 'test'
 //   },4,'a'], 2)
 // )
+
+// console.log(
+//   proxy!.strcut('url?id=adssa&test=das', '?'),
+//   proxy!.strcut('testd', 2)
+// )
+
+// console.log(proxy!.parseUrl('https://test?id=dada&en=zh'))
+
+// console.log(proxy!.objToArr({a: 1, b: 2}))
+// console.log(proxy!.throttle(() => {
+//   console.log(1)
+// }, 1000))
 </script>

@@ -5,6 +5,10 @@ import { MessageFn } from './message/message'
 import pick from './pick'
 import loopFn from './loopFn'
 import chunk from './chunk'
+import strcut from './strcut'
+import parseUrl from './parseUrl'
+import objToArr from './objToArr'
+import throttle from './throttle'
 
 type Map = Function | MessageFn
 const funcMap: Map[] = [
@@ -12,7 +16,11 @@ const funcMap: Map[] = [
   message,
   pick,
   loopFn,
-  chunk
+  chunk,
+  strcut,
+  parseUrl,
+  objToArr,
+  throttle
 ]
 
 function install(app: App) {
@@ -26,8 +34,12 @@ export * from './message'
 export * from './pick'
 export * from './loopFn'
 export * from './chunk'
+export * from './strcut'
+export * from './parseUrl'
+export * from './objToArr'
+export * from './throttle'
 
 export {
   install
 }
-export default install;
+export default install
