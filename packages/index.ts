@@ -1,10 +1,18 @@
 import { App } from 'vue'
 import setupFn from './setupFn'
-import Message from './message'
+import message from './message'
+import { MessageFn } from './message/message'
+import pick from './pick'
+import loopFn from './loopFn'
+import chunk from './chunk'
 
-const funcMap: Function[] = [
+type Map = Function | MessageFn
+const funcMap: Map[] = [
   setupFn,
-  Message
+  message,
+  pick,
+  loopFn,
+  chunk
 ]
 
 function install(app: App) {
@@ -15,5 +23,11 @@ function install(app: App) {
 
 export * from './setupFn'
 export * from './message'
+export * from './pick'
+export * from './loopFn'
+export * from './chunk'
 
+export {
+  install
+}
 export default install;

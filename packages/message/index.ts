@@ -1,11 +1,11 @@
 import { App } from 'vue'
-import Message from './message'
+import message from './message'
 
-Message['install'] = function(app: App) {
-  app.config.globalProperties[Message.name] = Message
+message['install'] = function(app: App) {
+  app.config.globalProperties[message.name] = message
 }
 
 export {
-  Message
+  message
 }
-export default Message
+export default message

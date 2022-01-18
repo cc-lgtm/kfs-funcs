@@ -4,16 +4,17 @@ import message from './message.vue'
 type Options = {
   text: string
 }
+type Type = 'error' | 'warn' | 'success'
 type Func = (options: Options) => void
-type MessageFn = {
-  'error': Func,
-  'warn': Func,
-  'success': Func
+export type MessageFn = {
+  [k in Type]: Func
+} & {
+  name: 'message'
 }
 
 function createMessage(props: {
   text: string,
-  type: 'error' | 'warn' | 'success'
+  type: Type
 }) {
   const vnode = createVNode(message, props)
   render(vnode, document.querySelector('body')!)
@@ -23,26 +24,25 @@ function createMessage(props: {
   }, 3000)
 }
 
-function Message(): MessageFn {
-  return {
-    error({ text }) {
-      createMessage({
-        text: text,
-        type: 'error'
-      })
-    },
-    warn({ text }) {
-      createMessage({
-        text: text,
-        type: 'warn'
-      })
-    },
-    success({ text }) {
-      createMessage({
-        text: text,
-        type: 'success'
-      })
-    }
+const  Message: MessageFn = {
+  name: 'message',
+  error({ text }) {
+    createMessage({
+      text: text,
+      type: 'error'
+    })
+  },
+  warn({ text }) {
+    createMessage({
+      text: text,
+      type: 'warn'
+    })
+  },
+  success({ text }) {
+    createMessage({
+      text: text,
+      type: 'success'
+    })
   }
 }
 
